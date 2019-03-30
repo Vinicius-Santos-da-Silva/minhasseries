@@ -1,0 +1,83 @@
+{
+  "series": [
+    {
+      "id": 1,
+      "name": "How I met your mother",
+      "status": "watched",
+      "genre": "Comédia",
+      "comments": "Muito bom"
+    },
+    {
+      "id": 2,
+      "name": "Friends",
+      "status": "watching",
+      "genre": "Comédia",
+      "current": {
+        "episode": "01",
+        "season": "09"
+      },
+      "comments": "Bom para descontrair"
+    },
+    {
+      "id": 3,
+      "name": "Breaking Bad",
+      "status": "watched",
+      "genre": "Drama",
+      "comments": "Say My Name - melhor cena"
+    },
+    {
+      "id": 4,
+      "name": "Better Call Saul",
+      "status": "toWatch",
+      "genre": "Drama",
+      "comments": "Galera fala bem"
+    },
+    {
+      "name": "saveSerie",
+      "status": "watched",
+      "genres": "Comédia",
+      "comments": "saveSerie",
+      "id": 5
+    },
+    {
+      "name": "Caldeirão do Hulk",
+      "status": "watching",
+      "genres": "Ação",
+      "comments": "Bom",
+      "id": 6
+    },
+    {
+      "name": "TAU",
+      "status": "watched",
+      "genres": "Drama",
+      "comments": "Inteligencia Artifical",
+      "id": 7
+    },
+    {
+      "name": "Caldeirão do Hulk",
+      "status": "watched",
+      "genre": "Ação",
+      "comments": "Lata velha",
+      "id": 8
+    },
+    {
+      "name": "Casa Mal assombrada",
+      "status": "toWatch",
+      "genre": "Drama",
+      "comments": "Ruim",
+      "id": 9
+    },
+    {
+      "name": "Teste Drama",
+      "status": "watched",
+      "genre": "Drama",
+      "comments": "Teste",
+      "id": 10
+    }
+  ],
+  "genres": [
+    "Comédia",
+    "Drama",
+    "Ação"
+  ]
+}
