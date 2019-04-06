@@ -8,15 +8,14 @@ import {
 import Home from './Home'
 import NewSerie from './NewSerie'
 import Series from './Series'
+import Login from './Login'
 
 
 class App extends Component {
   render() {
     const About = () => <section className="intro-section" ><h1>Sobre</h1></section>
-    
-    return (
-      <Router>
-        <div>
+    const Menu = () => {
+      return(
           <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
             <div className="container">
               <div className="navbar-header page-scroll">
@@ -36,14 +35,27 @@ class App extends Component {
                   <li>
                     <Link to='/new'>Nova Serie</Link>
                   </li>
+                  <li>
+                    <Link to='/login'>Nova Serie</Link>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
+      )
+    }
+    
+    return (
+
+      <Router>
+        <div>
+          
+
           <Route  exact path='/' component={Home} />
           <Route  exact path='/about' component={About} />
           <Route  exact path='/series/:genre' component={Series} />
           <Route  exact path='/new' component={NewSerie} />
+          <Route  exact path='/login' component={Login} />
         </div>
       </Router>
     );

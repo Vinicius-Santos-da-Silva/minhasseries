@@ -39,6 +39,7 @@ class NewSerie extends Component {
 	 	api.saveSerie(post)
 	 		.then((res)=>{console.log(res)})
 	 }
+	 
 	render(){
 		const statues = {
 
@@ -52,8 +53,9 @@ class NewSerie extends Component {
 			<section className="intro-section">
 
 				<h1>Nova Serie</h1>
-				<div>
-				Nome: <input type='text' ref='name' className='form-control'/>
+				<div className="container">
+				<label>Nome:</label>
+				Nome: <input type='text' ref='name' className='form-control my-5'/>
 				Status: 
 					<select ref='status'>
 						{

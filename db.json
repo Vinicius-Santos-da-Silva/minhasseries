@@ -73,6 +73,13 @@
       "genre": "Drama",
       "comments": "Teste",
       "id": 10
+    },
+    {
+      "name": "Teste Heroku",
+      "status": "watched",
+      "genre": "Comédia",
+      "comments": "Teste",
+      "id": 11
     }
   ],
   "genres": [
