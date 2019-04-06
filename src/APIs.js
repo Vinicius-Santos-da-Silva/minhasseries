@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-	baseURL:'http://ec2-3-16-89-162.us-east-2.compute.amazonaws.com/api-twitter-codeigniter/index.php/',
+	//baseURL:'http://ec2-3-16-89-162.us-east-2.compute.amazonaws.com/api-twitter-codeigniter/index.php/',
+	baseURL:'http://localhost/codeigniter/index.php/',
 	headers: {
 		'Content-Type': 'application/json',
 	}
