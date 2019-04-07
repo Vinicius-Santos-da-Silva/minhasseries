@@ -10,14 +10,16 @@ const api = axios.create({
 
 export const loadGenres 		= () 		 => api.get('genres')
 export const saveSerie 			= (newSerie) => api.post('series',newSerie);
-export const loadGenresByGenre 	= (genre) 	 => api.get('series?genre='+genre);
+export const loadGenresByGenre 	= (genre) 	 => api.post('seriesByGenero', genre);
 export const login 				= (login) 	 => api.post('login', login);
+export const loadSerieById		= (serie) 	 => api.post('SerieById', serie);
 
 const apis = {
 	loadGenres : loadGenres,
 	saveSerie : saveSerie,
 	loadGenresByGenre : loadGenresByGenre,
-	login: login
+	login: login,
+	loadSerieById: loadSerieById
 }
 
 export default apis;

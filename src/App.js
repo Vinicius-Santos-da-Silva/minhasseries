@@ -8,6 +8,7 @@ import {
 import Home from './Home'
 import NewSerie from './NewSerie'
 import Series from './Series'
+import Serie from './Serie.js'
 import Login from './Login'
 
 
@@ -54,6 +55,7 @@ class App extends Component {
           <Route  exact path='/' component={Home} />
           <Route  exact path='/about' component={About} />
           <Route  exact path='/series/:genre' component={Series} />
+          <Route  exact path='/serie/:id' component={Serie} />
           <Route  exact path='/new' component={NewSerie} />
           <Route  exact path='/login' component={Login} />
         </div>

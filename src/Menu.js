@@ -14,34 +14,47 @@ class Menu extends Component{
 		}
 	}
 
+	componentDidMount(){
+		if(!sessionStorage.apikey){
+			window.location.replace('/login')
+		}
+	}
+
+	logout(){
+		sessionStorage.clear();
+		window.location.replace('/login');
+	}
+
 	render(){
 		return(
-			<nav className="navbar navbar-default navbar-fixed-top" role="navigation">
-	            <div className="container">
-	              <div className="navbar-header page-scroll">
-	                <a className="navbar-brand page-scroll" href="#page-top">
-	                    <img src="images/logo.png" height="30" />
-	                </a>
-	              </div>
+			<nav className="navbar navbar-light bg-dark" role="navigation">
+			<a className="navbar-brand" href="#">
+				<img src="/images/logo.png" width="150" height="40" alt=""/>
+			</a>
 
-	              <div className="collapse navbar-collapse navbar-ex1-collapse">
-	                <ul className="nav navbar-nav">
-	                  <li>
-	                    <Link to='/'>Menu item</Link>
-	                  </li>
-	                   <li>
-	                    <Link to='/about'>Sobre</Link>
-	                  </li>
-	                  <li>
-	                    <Link to='/new'>Nova Serie</Link>
-	                  </li>
-	                  <li>
-	                    <Link to='/login'>Nova Serie</Link>
-	                  </li>
-	                </ul>
-	              </div>
-	            </div>
-	        </nav>
+				<ul className="nav">
+					<li className="nav-item">
+						<a className="nav-link active" href="#">
+							<Link to='/'>Home</Link>
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+						<Link to='/about'>Sobre</Link>
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+							<Link to='/new'>Nova Serie</Link>						
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">
+							<a onClick={this.logout}>Sair</a>						
+						</a>
+					</li>
+				</ul>	       
+	    </nav>
 		)
 	}
 }
