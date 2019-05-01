@@ -32,31 +32,24 @@ class NewSerie extends Component {
 	saveSeries() {
 
 		const post = {
-			name: this.refs.name.value,
-			status: this.refs.status.value,
-			genre: this.refs.genres.value,
-			comments: this.refs.comments.value,
-			imagem: this.refs.imagem.value
+			name: 		this.refs.name.value,
+			status: 	this.refs.status.value,
+			genre:  	this.refs.genres.value,
+			comments: 	this.refs.comments.value,
+			imagem: 	this.refs.imagem.value
 		}
-		console.log(post);
 
 		api.saveSerie(post)
 			.then((res) => {
-
-				console.log(res)
-
-				//window.location.replace('series/' + this.refs.genres.value);
-
+				window.location.replace('series/' + this.refs.genres.value);
 			})
 	}
 
 	render() {
 		const statues = {
-
 			"3": "Assistido",
 			"4": "Assistindo",
 			"5": "Assistir"
-
 		}
 
 		const section = {

@@ -17,42 +17,93 @@ class Serie extends Component {
             isLoading: false,
             genero: undefined
         }
+
+        this.addComentario = this.addComentario.bind(this)
     }
 
-    componentDidMount() {
-        this.setState({ isLoading: true })
-
+    load(){
         const request = {
             cd_serie: this.props.match.params.id
         }
 
-
-
         console.log(request)
 
         api.loadSerieById(request)
+        .then((res) => {
+            console.log(res.data)
+            this.setState({
+                series: res.data,
+                isLoading: false
+            });
+        })
+
+    }
+
+    componentDidMount() {
+        this.setState({ isLoading: true })
+        this.load();
+    }
+
+    addComentario() {
+        const post = {
+            id: Object(this.state.series.serie).id,
+            comentario: this.refs.comentario.value
+        }
+
+
+
+        api.addComentario(post)
             .then((res) => {
-                console.log(res)
+                console.log(res.data)
+                if(res.data.status === 200){
+                    this.refs.comentario.value = ''
+                    this.load();
+                }
                 this.setState({
-                    series: res.data,
-                    isLoading: false
-                });
+                    isLoading: false,
+                })
             })
 
     }
 
     renderSeries(series) {
+        //console.log(JSON.stringify(series.serie));
+
+        let serie = Object(series.serie);
+
+        
         return (
-            <div className="card">
-                <img src={series.imagem} className="card-img-top" alt="..." />
-                <div className="card-body">
-                    <h5 className="card-title">{series.nome}</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+            <div className="shadow p-3 mb-5 bg-white rounded mx-auto my-5">
+                <div className="px-auto py-5">
+                    <img src={serie.imagem} className="mx-auto my-1 img-thumbnail" width="150" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">{serie.nome}</h5>
+                        <div className="form-group">
+                            <label for="exampleFormControlTextarea1">Comentario</label>
+                            <textarea ref='comentario' className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="button" onClick={this.addComentario} className="btn btn-outline-primary">Adicionar Comentario</button>
+                    </div>
                 </div>
             </div>
         )
     }
+
+    renderComentarios(series){
+        let comentarios = Object.values(Object(series.comentarios));
+
+        return comentarios.map((comentario)=>{
+           return (
+               <div class="shadow-lg p-3 mb-2 bg-white rounded">
+
+                    <p>{comentario.comentario}</p>
+
+               </div>
+            )
+        });
+    }
+
+
 
     render() {
         return (
@@ -61,14 +112,18 @@ class Serie extends Component {
                 <section className="intro-section">
 
                     {
-                        this.state.isLoading && <span>Carregando, aguarde....</span>
+                        this.state.isLoading && 
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
                     }
                     {
                         !this.state.isLoading &&
-                        <div>
-                            <div id="series" className="row list-group">
-                                <div className="d-flex">
+                        <div className="container">
+                            <div id="series" className=" my-auto row list-group">
+                                <div className="d-block">
                                     {this.renderSeries(this.state.series)}
+                                    {this.renderComentarios(this.state.series)}
                                 </div>
 
                             </div>

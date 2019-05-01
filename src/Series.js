@@ -76,7 +76,11 @@ class Series extends Component {
 				<section className="intro-section">
 
 					{
-						this.state.isLoading && <span>Carregando, aguarde....</span>
+						this.state.isLoading && 
+						
+						<div class="spinner-border" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
 					}
 					{
 						!this.state.isLoading &&
